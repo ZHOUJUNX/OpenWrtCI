@@ -13,6 +13,9 @@
 # Modify default IP
 echo '### Updates default IP gate ###'
 sed -i 's/192.168.1.1/10.1.1.10/g' package/base-files/files/bin/config_generate
+sed -i 's/addr_offset=2/addr_offset=20/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.$((addr_offset++)).1/10.1.1.$((addr_offset++))/g' package/base-files/files/bin/config_generate
+cat package/base-files/files/bin/config_generate
 echo '###  ###'
 
 # echo '### Updates Theme Argon ###'
@@ -22,5 +25,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/fee
 echo '###  ###'
 
 echo '### 修复 luci-app-syncdial 检测的 bug ###'
+rm -rf package/feeds/luci/luci-app-syncdial
+git clone https://github.com/BenjaminX/luci-app-syncdial.git package/feeds/luci/luci-app-syncdial
 sed -i 's/is online and tracking is active/and tracking is active/' package/feeds/luci/luci-app-syncdial/luasrc/model/cbi/syncdial.lua
 echo '###  ###'
