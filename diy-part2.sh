@@ -20,9 +20,3 @@ echo '###  ###'
 rm -rf package/feeds/luci/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/feeds/luci/luci-theme-argon
 echo '###  ###'
-
-echo '### 修复 luci-app-syncdial 检测的 bug ###'
-rm -rf package/feeds/luci/luci-app-syncdial
-git clone https://github.com/BenjaminX/luci-app-syncdial.git package/feeds/luci/luci-app-syncdial
-sed -i 's/is online and tracking is active/and tracking is active/' package/feeds/luci/luci-app-syncdial/luasrc/model/cbi/syncdial.lua
-echo '###  ###'
