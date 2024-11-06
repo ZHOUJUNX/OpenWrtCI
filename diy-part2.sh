@@ -16,7 +16,6 @@ sed -i 's/192.168.1.1/10.1.1.10/g' package/base-files/luci2/bin/config_generate
 echo '###  ###'
 
 # echo '### Updates Theme Argon ###'
-# package/lean/luci-theme-argon /package/feeds/luci/luci-theme-argon
 rm -rf package/feeds/luci/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/feeds/luci/luci-theme-argon
 echo '###  ###'
